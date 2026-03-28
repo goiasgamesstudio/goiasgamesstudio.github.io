@@ -1,5 +1,5 @@
 const revealTargets = document.querySelectorAll(
-  ".feature-card, .world-card, .process-step, .manifesto-panel, .contact-box"
+  ".intro-card, .feature-card, .world-card, .contact-box, .metric, .signal-card, .game-item, .catalog-card, .detail-card, .game-shot-card"
 );
 
 const observer = new IntersectionObserver(
@@ -11,7 +11,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.16,
+    threshold: 0.18,
   }
 );
 
