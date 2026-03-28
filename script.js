@@ -1,10 +1,21 @@
-const contactButton = document.getElementById("contactButton");
+const revealTargets = document.querySelectorAll(
+  ".feature-card, .world-card, .process-step, .manifesto-panel, .contact-box"
+);
 
-if (contactButton) {
-  contactButton.addEventListener("click", () => {
-    const email = "contato@studioaurora.com";
-    const subject = encodeURIComponent("Quero um orcamento");
-    const body = encodeURIComponent("Oi! Vim pelo site e quero conversar sobre um projeto.");
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-  });
-}
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  },
+  {
+    threshold: 0.16,
+  }
+);
+
+revealTargets.forEach((target) => {
+  target.classList.add("reveal");
+  observer.observe(target);
+});
